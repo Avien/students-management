@@ -1,0 +1,97 @@
+<ng-container *ngIf="facade.vm$ | async as vm">
+    <div class="students-management">
+        <div class="page-header">Students management</div>
+        <div class="row box space-between big-box">
+            <div class="row">
+                <div class="select">
+                    <select [(ngModel)]="selectedYear">
+                        <option
+                            *ngFor="let classYear of vm.classData.classYears"
+                            [value]="classYear"
+                        >
+                            {{ classYear === emptyValue ? 'Choose Year' : classYear }}
+                        </option>
+                    </select>
+                </div>
+                <div class="select">
+                    <select [(ngModel)]="selectedClass">
+                        <option
+                            *ngFor="let classType of vm.classData.classTypes"
+                            [value]="classType"
+                        >
+                            {{ classType === emptyValue ? 'Choose Class' : classType }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="column">
+                <div class="flex-end">
+                    <div class="thumbnail" (click)="pageViewMode = viewMode.TABLE">
+                        <img src="assets/images/table-icon.png" />
+                    </div>
+                    <div class="thumbnail" (click)="pageViewMode = viewMode.GRID">
+                        <img src="assets/images/grid-icon.png" />
+                    </div>
+                </div>
+                <div class="table-view" *ngIf="pageViewMode === viewMode.TABLE">
+                    <div class="header">
+                        <span class="fname">Name</span>
+                        <span class="lname">S.Name</span>
+                        <span class="grade">Score</span>
+                    </div>
+                    <div
+                        *ngFor="
+                            let student of vm.classData.classStudents
+                                | studentFilter: selectedYear:selectedClass;
+                            let i = index
+                        "
+                        [class.low-grade]="student.grade <= 45"
+                        [class.active]="student === selectedStudent"
+                        (click)="selectStudent(student)"
+                    >
+                        <span class="fname"
+                            ><strong>{{ student.fname }} </strong></span
+                        >
+                        <span class="lname"
+                            ><strong>{{ student.lname }}</strong>
+                        </span>
+                        <span class="grade"
+                            ><strong>{{ student.grade }} </strong></span
+                        >
+                    </div>
+                </div>
+
+                <div class="grid-view" *ngIf="pageViewMode === viewMode.GRID">
+                    <app-student-card
+                        *ngFor="
+                            let student of vm.classData.classStudents
+                                | studentFilter: selectedYear:selectedClass;
+                            let i = index
+                        "
+                        (click)="selectStudent(student)"
+                        [student]="student"
+                        [active]="selectedStudent === student"
+                        (changeGrade)="student.grade = $event"
+                    ></app-student-card>
+                </div>
+            </div>
+        </div>
+        <div class="row box">
+            <div class="column">
+                <div class="student-card-container">
+                    <app-student-card
+                        *ngIf="pageViewMode === viewMode.TABLE && selectedStudent"
+                        [student]="selectedStudent"
+                        (changeGrade)="selectedStudent.grade = $event"
+                    ></app-student-card>
+                </div>
+                <angular-editor
+                    [placeholder]="'Enter text here...'"
+                    [(ngModel)]="htmlContent"
+                    [config]="editorConfig"
+                ></angular-editor>
+                <div class="flex-end"><button>SUBMIT</button></div>
+            </div>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,134 @@
+@import '../../../assets/styles/common';
+
+.students-management {
+    max-width: calc(50vw - 135px);
+
+    .page-header {
+        height: 30px;
+        background-color: #ebe9ea;
+        border: 1px solid #cccccc;
+        border-bottom: none;
+        padding-top: 10px;
+        padding-left: 44px;
+        font-size: 17px;
+    }
+    .row {
+        .select {
+            margin-right: 30px;
+            margin-top: 32px;
+        }
+
+        .table-view {
+            overflow: auto;
+            height: 250px;
+            max-height: 250px;
+            border-collapse: collapse;
+
+            .header {
+                background-color: #ddffd2;
+                cursor: default;
+            }
+            div {
+                display: table-row;
+                cursor: pointer;
+                background-color: white;
+
+                span {
+                    display: table-cell;
+                    border: 1px solid #cccccc;
+                    height: 35px;
+                    padding-left: 20px;
+                    vertical-align: middle;
+
+                    &.fname {
+                        width: 200px;
+                    }
+
+                    &.lname {
+                        width: 245px;
+                    }
+
+                    &.grade {
+                        width: 110px;
+                        text-align: center;
+                    }
+                }
+                &.low-grade {
+                    background-color: #fddbdb;
+                }
+
+                &.active {
+                    background-color: #ffffe0;
+                }
+            }
+        }
+
+        .grid-view {
+            overflow: auto;
+            max-height: 250px;
+
+            app-student-card ::ng-deep {
+                .student-card {
+                    width: 550px;
+
+                    .table {
+                        max-width: 425px;
+                    }
+                    &.active {
+                        width: 547px;
+                    }
+                }
+            }
+        }
+    }
+
+    .box {
+        background-color: #f5f5f5;
+        padding: 32px;
+        margin-bottom: 20px;
+        max-height: 700px;
+        border: 1px solid #cccccc;
+    }
+
+    .big-box {
+        padding-top: 16px;
+    }
+
+    .student-card-container {
+        height: 100px;
+    }
+    angular-editor {
+        margin-top: 20px;
+        ::ng-deep {
+            .angular-editor .angular-editor-wrapper {
+                .angular-editor-textarea {
+                    background-color: white;
+                    border: 1px solid #999999;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+
+    .thumbnail {
+        padding: 5px;
+        cursor: pointer;
+
+        &:first-child {
+            position: relative;
+            bottom: 1px;
+        }
+    }
+
+    button {
+        width: 114px;
+        height: 44px;
+        background: #8ec745;
+        border: 1px solid #6ea230;
+        border-radius: 4px;
+        color: white;
+        font-size: 12px;
+        margin-top: 30px;
+        cursor: pointer;
+    }
+}

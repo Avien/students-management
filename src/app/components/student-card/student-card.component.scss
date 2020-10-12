@@ -1,0 +1,49 @@
+@import '../../../assets/styles/common';
+
+.student-card {
+    background-color: white;
+    border: 1px solid #999999;
+    border-radius: 4px;
+    height: 100px;
+    align-items: center;
+    margin-bottom: 5px;
+    cursor: pointer;
+
+    &.active {
+        border: 3px solid #b0d97c;
+    }
+
+    &.low-grade {
+        background-color: #fddbdb;
+    }
+
+    .thumbnail {
+        margin: 15px;
+    }
+    input {
+        width: 70px;
+        height: 30px;
+        background-color: #ffffe0;
+        border: 1px solid;
+        border-radius: 4px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .table {
+        display: table;
+        table-layout: fixed;
+        border-spacing: 10px;
+        width: 100%;
+        max-width: 650px;
+        div {
+            display: table-row;
+
+            span {
+                display: table-cell;
+
+                padding-top: 5px;
+            }
+        }
+    }
+}

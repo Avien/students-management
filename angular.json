@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "student-management"
+    }
+  },
+  "defaultProject": "student-management",
+  "cli": {
+    "analytics": false
+  }
 }

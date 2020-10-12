@@ -1,0 +1,27 @@
+<div class="student-card row" [class.active]="active" [class.low-grade]="grade <= 45">
+    <div class="thumbnail"><img src="assets/images/person.png" /></div>
+    <div class="table">
+        <div>
+            <span>Name:</span
+            ><span
+                ><strong>{{ student?.fname }}</strong></span
+            >
+            <span>Class:</span
+            ><span
+                ><strong>{{ student?.classType }}</strong></span
+            >
+        </div>
+        <div>
+            <span>S.Name:</span
+            ><span
+                ><strong>{{ student?.lname }}</strong></span
+            >
+            <span>Year:</span>
+            <span
+                ><strong>{{ student?.year }}</strong></span
+            >
+            <span>Score:</span
+            ><span><input [ngModel]="grade" (ngModelChange)="changeStudentGrade($event)" /></span>
+        </div>
+    </div>
+</div>
