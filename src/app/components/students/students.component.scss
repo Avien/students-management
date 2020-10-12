@@ -66,6 +66,7 @@
         .grid-view {
             overflow: auto;
             max-height: 250px;
+            height: 250px;
 
             app-student-card ::ng-deep {
                 .student-card {
