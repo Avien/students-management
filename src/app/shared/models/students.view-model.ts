@@ -8,6 +8,10 @@ export interface StudentsVideModel {
 
 export type StudentsStreams = [Observable<Class>];
 
+/**
+ * Build a consolidated stream to expose read-only view model for all 'important' information
+ * Utility feature for the UI view emitting a single VM stream
+ */
 export function makeStudentsViewModel(
     streams: StudentsStreams,
 ): Observable<Readonly<StudentsVideModel>> {

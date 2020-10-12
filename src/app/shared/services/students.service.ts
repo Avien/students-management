@@ -15,7 +15,7 @@ export class StudentsService {
     loadStudents(): Observable<Class> {
         const updateStudentData = (classData: Class) => {
             /**
-             * add classType for every Student
+             * Add classType for every student
              */
             const classStudents = classData.classStudents.map((it: ClassStudent) => {
                 return {
@@ -28,7 +28,7 @@ export class StudentsService {
             });
 
             /**
-             * create a classYears array from all different unique year property of each student
+             * Create a classYears unique array from all different year values of each student
              */
             const allStudents = (classData.classStudents.map((it: ClassStudent) => [
                 ...it.students,

@@ -20,6 +20,9 @@ export class StudentsFacade {
         this.vm$ = makeStudentsViewModel([this.students$]);
     }
 
+    /**
+     * Load class & students data
+     */
     loadStudents() {
         const students$ = this.studentsService.loadStudents();
 
